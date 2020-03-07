@@ -90,9 +90,9 @@ public class VectorDrawableCreator {
     public static Drawable getVectorDrawable(@NonNull Context context,
                                              int width, int height,
                                              float viewportWidth, float viewportHeight,
-                                             boolean stroke, int strokeColor, float translateX,
+                                             boolean stroke, float translateX,
                                              float translateY, List<PathData> paths) {
-        byte[] binXml = createBinaryDrawableXml(width, height, viewportWidth, viewportHeight, stroke, strokeColor, translateX, translateY, paths);
+        byte[] binXml = createBinaryDrawableXml(width, height, viewportWidth, viewportHeight, stroke, translateX, translateY, paths);
 
         try {
             // Get the binary XML parser (XmlBlock.Parser) and use it to create the drawable
@@ -176,7 +176,7 @@ public class VectorDrawableCreator {
 
     private static byte[] createBinaryDrawableXml(int width, int height,
                                                   float viewportWidth, float viewportHeight,
-                                                  boolean stroke, int strokeColor, float translateX,
+                                                  boolean stroke, float translateX,
                                                   float translateY, List<PathData> paths) {
         List<byte[]> stringPool = new ArrayList<>(Arrays.asList(BIN_XML_STRINGS));
         stringPool.add(12, paths.get(0).data);
